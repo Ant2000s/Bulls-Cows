@@ -26,7 +26,7 @@ int random_n(int kol)
 
 int main()
 {
-int kol,numb;
+int kol;
 scanf("%d",&kol);
 printf("\n %d",random_n(kol+3));
 }
