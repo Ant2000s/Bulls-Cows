@@ -1,8 +1,10 @@
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <time.h>
+//#include <math.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <sys/time.h>
+//#include <time.h>
+#include "core.h"
+
 int random_n(int kol)
 {
     srand(time(NULL));
@@ -22,6 +24,47 @@ int random_n(int kol)
     return numb;
 }
 
-int main()
+int how_much_bulls(int number, int gen, int kol)
 {
+    int num = number, m = gen, bulls = 0;
+    for (int i = kol; i >= 1; i--) {
+        if ((num % 10) == (m % 10)) {
+            bulls++;
+        }
+        num = num / 10;
+        m = m / 10;
+    }
+    return bulls;
 }
+
+int how_much_cows(int number, int gen, int kol)
+{
+    int num = number, m = gen, cows = 0, mm;
+    for (int i = 1; i <= kol; i++) {
+        if ((num % 10) != (m % 10)) {
+            for (int k = 0; k < kol; k++) {
+                mm = gen / (pow(10, k));
+                if ((num % 10) == (mm % 10)) {
+                    cows++;
+                    break;
+                }
+            }
+        }
+        num = num / 10;
+        m = m / 10;
+    }
+    return cows;
+}
+/*int main()
+{
+int i,kol,num,cows=0,bulls=0;
+scanf("%d",&kol);
+kol=kol+3;
+num=random_n(kol);
+do {
+scanf("%d",&i);
+bulls=how_much_bulls(i,num,kol);
+cows=how_much_cows(i,num,kol);
+printf("%d %d %d",num,bulls,cows);
+} while (bulls!=kol);
+}*/
