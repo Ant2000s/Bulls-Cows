@@ -1,13 +1,10 @@
-//#include <math.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <sys/time.h>
-//#include <time.h>
-#include "core.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+//#include "core.h"
 
 int random_n(int kol)
 {
-    srand(time(NULL));
     int n, ind, numb = 0, m;
     for (int i = 1; i <= kol; i++) {
         do {
@@ -55,6 +52,18 @@ int how_much_cows(int number, int gen, int kol)
     }
     return cows;
 }
+
+void print_txt(FILE *p) {
+    int c;
+    if (p == NULL) {
+        printf("Cannot open file\n");
+    }else{
+        while((c = fgetc(p)) != EOF){
+            putc(c, stdout);
+        }
+    }
+}
+
 /*int main()
 {
 int i,kol,num,cows=0,bulls=0;

@@ -4,6 +4,14 @@
 int main()
 {
     int i, kol, cows = 0, bulls = 0, num;
+    FILE *p;
+    p = fopen("../src/rules.txt", "rt");
+    printf("Touch \"2\" to show rules: ");
+    scanf("%d", &i);
+    if (i == 2) {
+    print_txt(p);
+    fclose(p);
+    }
     scanf("%d", &kol);
     kol = kol + 3;
     num = random_n(kol);
