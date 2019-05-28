@@ -1,7 +1,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include "core.h"
 
 int random_n(int kol)
 {
@@ -61,6 +60,50 @@ void print_txt(FILE *p) {
         while((c = fgetc(p)) != EOF){
             putc(c, stdout);
         }
+    }
+}
+
+void print_menu() {
+    printf("\n\tBulls and Cows\n\n");
+    printf("Touch \"1\" to choose the difficultness\n");
+    printf("Touch \"2\" to show rules\n");
+    printf("Touch \"3\" to exit\n");
+    printf("Select: ");
+}
+
+int choose_point() { //рабочий вариант, итог
+    int kol, i;
+    char *c = NULL;
+    size_t len = 0;
+    for(;;) {
+        getline(&c, &len, stdin);
+        for(i = 0; c[i] != '\n'; i++);
+        kol = atoi(c);
+        if ((kol != 0) && (i == 1) && ((kol == 1) ||(kol == 2) || (kol == 3))) {
+        return kol;
+        }
+        printf("Incorrect input, try again\n");
+    }
+}
+
+int scans(int kol) {
+    int num, i;
+    char *c = NULL;
+    size_t len = 0;
+    printf("Input your picked number: "); //не оптимальный, но полностью рабочий
+    for (;;) {
+        //scanf("%d\n", &num);
+        //printf("num: %d\n", num);
+        getline(&c, &len, stdin);
+        for (i = 0; c[i] != '\n'; i++);
+        num = atoi(c);
+        //printf("i = %d\n", i);
+        //printf("num = %d\n", num);
+        if ((i == kol) /*(num != 0)*/ && (((num/pow(10, kol - 1) < 10) && (num/pow(10, kol - 1) >= 1)))) {
+            return num;
+        }
+        printf("Incorrect value, try again\n");
+        //while(getchar() != '\n');
     }
 }
 
