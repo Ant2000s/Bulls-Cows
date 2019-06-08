@@ -95,7 +95,7 @@ int choose_point()
 
 int scans(int kol)
 {
-    int num, i;
+    int num, i, zero = 0, reit = 0;
     char* c = NULL;
     size_t len = 0;
     printf("Input your picked number: "); //не оптимальный, но полностью рабочий
@@ -105,14 +105,34 @@ int scans(int kol)
         getline(&c, &len, stdin);
         for (i = 0; c[i] != '\n'; i++)
             ;
-        num = atoi(c);
-        // printf("i = %d\n", i);
-        // printf("num = %d\n", num);
-        if ((i == kol) /*(num != 0)*/
-            && (((num / pow(10, kol - 1) < 10)
-                 && (num / pow(10, kol - 1) >= 1)))) {
-            return num;
+        //printf("\n%c\n", c[0]);
+        if (c[0] == '0') {
+             zero = 1;
         }
+        for (int l=0; l<i; l++) {
+            for (int a = i; a>l; a--) {
+                if (c[l] == c[a]) reit = 1;
+            }
+        }
+        num = atoi(c);
+        //printf("i = %d\n", i);
+        //printf("num = %d\n", num);
+        if (zero == 0) {
+            if ((i == kol) && (reit == 0) /*(num != 0)*/
+                && (((num / pow(10, kol - 1) < 10)
+                     && (num / pow(10, kol - 1) >= 1)))) {
+                return num;
+            }
+        }
+        if (zero == 1) {
+            if ((i == kol) && (reit == 0)/*(num != 0)*/
+                && (((num / pow(10, kol - 2) < 10)
+                     && (num / pow(10, kol - 2) >= 1)))) {
+                return num;
+            }
+        }
+        reit = 0;
+        zero = 0;
         printf("Incorrect value, try again\n");
         // while(getchar() != '\n');
     }
