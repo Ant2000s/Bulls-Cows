@@ -10,7 +10,7 @@ int main()
 	print_menu();
         h = choose_point();
         if (h == 2) {
-            p = fopen("./src/rules.txt", "rt");
+            p = fopen("../src/rules.txt", "rt");
             print_txt(p);
             fclose(p);
         }
