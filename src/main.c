@@ -5,7 +5,7 @@ int main()
 {
     int i, h, kol, cows = 0, bulls = 0, num;
     FILE *p;
-    //p = fopen("../src/rules.txt", "rt");
+    p = fopen("../src/rules.txt", "rt");
     while (1) {
 	print_menu();
         h = choose_point();
@@ -27,8 +27,9 @@ int main()
                 i = scans(kol);
                 bulls = how_much_bulls(i, num, kol);
                 cows = how_much_cows(i, num, kol);
-                printf("%d %d %d\n", num, bulls, cows);
+                printf("bulls: %d\n cows: %d\n", bulls, cows);
             } while (bulls != kol);
+            printf("Congratulations! You won!");
         }
         if (h == 3) {
             return 0;
