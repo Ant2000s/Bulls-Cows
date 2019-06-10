@@ -8,7 +8,7 @@ int how_much_bulls(int number, int gen, int kol);
 int how_much_cows(int number, int gen, int kol);
 void print_txt(FILE *p);
 int scans(int kol);
-int choose_point();
+int choose_point(int L);
 void print_menu();
 
 #endif
