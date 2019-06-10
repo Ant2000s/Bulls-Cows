@@ -75,7 +75,7 @@ void print_menu()
     printf("Select: ");
 }
 
-int choose_point()
+int choose_point(int L)
 { //рабочий вариант, итог
     int kol, i;
     char* c = NULL;
@@ -85,8 +85,12 @@ int choose_point()
         for (i = 0; c[i] != '\n'; i++)
             ;
         kol = atoi(c);
-        if ((kol != 0) && (i == 1)
+        if ((kol != 0) && (i == 1) && (L == 3)
             && ((kol == 1) || (kol == 2) || (kol == 3))) {
+            return kol;
+        }
+         if ((kol != 0) && (i == 1) && (L == 4)
+            && ((kol == 1) || (kol == 2) || (kol == 3) || (kol == 4))) {
             return kol;
         }
         printf("Incorrect input, try again\n");
@@ -98,7 +102,7 @@ int scans(int kol)
     int num, i, zero = 0, reit = 0;
     char* c = NULL;
     size_t len = 0;
-    printf("Input your picked number: "); //не оптимальный, но полностью рабочий
+//    printf("Input your picked number: "); //не оптимальный, но полностью рабочий
     for (;;) {
         // scanf("%d\n", &num);
         // printf("num: %d\n", num);
