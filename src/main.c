@@ -1,6 +1,6 @@
 #include "core.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 int main() {
   int i, h = 0, kol, d, cows = 0, bulls = 0, num;
   FILE *p;
@@ -18,78 +18,87 @@ int main() {
       }
       printf("Incorrect value, try again: ");
     }
-    if (h == 2) {
+    if (h == 3) {
+      system("clear");
       p = fopen("../src/rules.txt", "rt");
       print_txt(p);
       fclose(p);
     }
     if (h == 1) {
-      printf("Choose the difficultness:\n");
-      printf("\t1. Easy\n");
-      printf("\t2. Medium\n");
-      printf("\t3. Difficult\n");
-      printf("Input value: ");
+      system("clear");
+      printf("%102s","Choose the difficultness:\n");
+      printf("%93s","1. Easy\n");
+      printf("%94s","2. Medium\n");
+      printf("%96s","3. Difficult\n");
+      printf("%96s","Input value: ");
       for (;;) {
         getline(&hchar, &len, stdin);
         d = choose_point(3, hchar, &kol);
         if (d == 1) {
           break;
         }
-        printf("Incorrect value, try again: ");
+        printf("%103s","Incorrect value, try again: ");
         }
         kol = kol + 3;
         num = random_n(kol);
         do {
-          printf("Input your number: ");
+//          system("clear");
+          printf("%98s","Input your number: ");
           for (;;) {
             getline(&ichar, &len, stdin);
             d = scans(kol, ichar, &i);
             if (d == 1) {
               break;
             }
-            printf("Incorrect value, try again: ");
+            printf("%103s","Incorrect value, try again: ");
           }
           bulls = how_much_bulls(i, num, kol);
           cows = how_much_cows(i, num, kol);
-          printf("bulls: %d\n cows: %d\n", bulls, cows);
+          printf("%83s"," ");
+          printf("bulls: %d cows: %d\n", bulls, cows);
         } while (bulls != kol);
-        printf("Congratulations! You won!");
+        system("clear");
+        printf("%105s","Congratulations! You won!\n");
       }
-      if (h == 4) {
-        printf("Choose the difficultness:\n");
-        printf("\t1. Easy\n");
-        printf("\t2. Medium\n");
-        printf("\t3. Difficult\n");
-        printf("Input value: ");
+      if (h == 2) {
+        printf("%100s","Choose the difficultness:\n");
+      printf("%93s","1. Easy\n");
+      printf("%94s","2. Medium\n");
+      printf("%96s","3. Difficult\n");
+      printf("%96s","Input value: ");
         for (;;) {
           getline(&hchar, &len, stdin);
           d = choose_point(3, hchar, &kol);
           if (d == 1) {
             break;
           }
-          printf("Incorrect value, try again: ");
+          printf("%103s","Incorrect value, try again: ");
         }
         kol = kol + 3;
         int H = 1;
         num = random_n(kol);
         do {
           H++;
-          printf("   Player %d \ninput your number: ", (H % 2) + 1);
+          printf("%86s"," ");
+          printf("Player %d \n", (H % 2) + 1);
+          printf("%98s","input your number: ");
           for (;;) {
             getline(&ichar, &len, stdin);
             d = scans(kol, ichar, &i);
             if (d == 1) {
               break;
             }
-            printf("Incorrect value, try again: ");
+            printf("%103s","Incorrect value, try again: ");
           }
           bulls = how_much_bulls(i, num, kol);
           cows = how_much_cows(i, num, kol);
-          printf("bulls: %d\n cows: %d\n", bulls, cows);
+          printf("%83s"," ");
+          printf("bulls: %d cows: %d\n", bulls, cows);
         } while (bulls != kol);
+        printf("%74s"," ");
         printf("Congratulations! Player %d won!", (H % 2) + 1);
       }
-      if (h == 3) {
+      if (h == 4) {
         return 0;
       }
       // print_menu();

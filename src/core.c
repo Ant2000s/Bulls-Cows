@@ -68,11 +68,13 @@ void print_txt(FILE* p)
 
 void print_menu()
 {
-    printf("\n\tBulls and Cows\n\n");
-    printf("Touch \"1\" to choose the difficultness\n");
-    printf("Touch \"2\" to show rules\n");
-    printf("Touch \"3\" to exit\n");
-    printf("Select: ");
+    system("clear");
+    printf("%100s", "Bulls and Cows\n\n");
+    printf("%110s", "Touch \"1\" to start playing(one player)\n");
+    printf("%111s", "Touch \"1\" to start playing(two players)\n");
+    printf("%104s", "Touch \"3\" to show rules\n");
+    printf("%100s", "Touch \"4\" to exit\n");
+    printf("%95s", "Select: ");
 }
 
 int choose_point(int L, char* c, int* kole)
