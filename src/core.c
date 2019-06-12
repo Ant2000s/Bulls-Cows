@@ -75,38 +75,41 @@ void print_menu()
     printf("Select: ");
 }
 
-int choose_point(int L)
+int choose_point(int L, char* c, int* kole)
 { //рабочий вариант, итог
     int kol, i;
-    char* c = NULL;
-    size_t len = 0;
-    for (;;) {
-        getline(&c, &len, stdin);
+//    char* c = NULL;
+//    size_t len = 0;
+//    for (;;) {
+  //      getline(&c, &len, stdin);
         for (i = 0; c[i] != '\n'; i++)
             ;
         kol = atoi(c);
+        *kole = kol;
         if ((kol != 0) && (i == 1) && (L == 3)
             && ((kol == 1) || (kol == 2) || (kol == 3))) {
-            return kol;
+            return 1;
         }
          if ((kol != 0) && (i == 1) && (L == 4)
             && ((kol == 1) || (kol == 2) || (kol == 3) || (kol == 4))) {
-            return kol;
+            return 1;
         }
-        printf("Incorrect input, try again\n");
-    }
+
+       return 0;
+//        printf("Incorrect input, try again\n");
+//    }
 }
 
-int scans(int kol)
+int scans(int kol, char* c, int* nume)
 {
-    int num, i, zero = 0, reit = 0;
-    char* c = NULL;
-    size_t len = 0;
+    int  i, num, zero = 0, reit = 0;
+//    char* c = NULL;
+//    size_t len = 0;
 //    printf("Input your picked number: "); //не оптимальный, но полностью рабочий
-    for (;;) {
+//    for (;;) {
         // scanf("%d\n", &num);
         // printf("num: %d\n", num);
-        getline(&c, &len, stdin);
+//        getline(&c, &len, stdin);
         for (i = 0; c[i] != '\n'; i++)
             ;
         //printf("\n%c\n", c[0]);
@@ -121,25 +124,27 @@ int scans(int kol)
         num = atoi(c);
         //printf("i = %d\n", i);
         //printf("num = %d\n", num);
+        *nume=num;
         if (zero == 0) {
             if ((i == kol) && (reit == 0) /*(num != 0)*/
                 && (((num / pow(10, kol - 1) < 10)
                      && (num / pow(10, kol - 1) >= 1)))) {
-                return num;
+                return 1;
             }
         }
         if (zero == 1) {
             if ((i == kol) && (reit == 0)/*(num != 0)*/
                 && (((num / pow(10, kol - 2) < 10)
                      && (num / pow(10, kol - 2) >= 1)))) {
-                return num;
+                return 1;
             }
         }
         reit = 0;
         zero = 0;
-        printf("Incorrect value, try again\n");
+        return 0;
+        //printf("Incorrect value, try again\n");
         // while(getchar() != '\n');
-    }
+//    }
 }
 
 /*int main()
