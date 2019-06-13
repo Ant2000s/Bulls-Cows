@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
+  system("clear");
   int i, h = 0, kol, d, cows = 0, bulls = 0, num;
   FILE *p;
   size_t len;

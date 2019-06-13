@@ -68,10 +68,10 @@ void print_txt(FILE* p)
 
 void print_menu()
 {
-    system("clear");
+//    system("clear");
     printf("%100s", "Bulls and Cows\n\n");
     printf("%110s", "Touch \"1\" to start playing(one player)\n");
-    printf("%111s", "Touch \"1\" to start playing(two players)\n");
+    printf("%111s", "Touch \"2\" to start playing(two players)\n");
     printf("%104s", "Touch \"3\" to show rules\n");
     printf("%100s", "Touch \"4\" to exit\n");
     printf("%95s", "Select: ");
