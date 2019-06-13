@@ -17,7 +17,7 @@ int main() {
       if (d == 1) {
         break;
       }
-      printf("Incorrect value, try again: ");
+      printf("%103s","Incorrect value, try again: ");
     }
     if (h == 3) {
       system("clear");
