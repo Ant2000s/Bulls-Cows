@@ -12,16 +12,3 @@ int choose_point(int L, char* c, int* kole);
 void print_menu();
 
 #endif
-/*int main()
-{
-int i,kol,num,cows=0,bulls=0;
-scanf("%d",&kol);
-kol=kol+3;
-num=random_n(kol);
-do {
-scanf("%d",&i);
-bulls=how_much_bulls(i,num,kol);
-cows=how_much_cows(i,num,kol);
-printf("%d %d %d",num,bulls,cows);
-} while (bulls!=kol);
-}*/
