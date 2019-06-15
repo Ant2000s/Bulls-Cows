@@ -124,8 +124,6 @@ int scans(int kol, char* c, int* nume)
             }
         }
         num = atoi(c);
-        //printf("i = %d\n", i);
-        //printf("num = %d\n", num);
         *nume=num;
         if (zero == 0) {
             if ((i == kol) && (reit == 0) /*(num != 0)*/
@@ -148,17 +146,3 @@ int scans(int kol, char* c, int* nume)
         // while(getchar() != '\n');
 //    }
 }
-
-/*int main()
-{
-int i,kol,num,cows=0,bulls=0;
-scanf("%d",&kol);
-kol=kol+3;
-num=random_n(kol);
-do {
-scanf("%d",&i);
-bulls=how_much_bulls(i,num,kol);
-cows=how_much_cows(i,num,kol);
-printf("%d %d %d",num,bulls,cows);
-} while (bulls!=kol);
-}*/
