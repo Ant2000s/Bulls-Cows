@@ -104,8 +104,8 @@ CTEST(input, scan_number)
 
 CTEST(counter, bulls_cows) {
 
-    int c1 = how_much_bulls(01234, 98765, 5);
-    int c2 = how_much_cows(01234, 98765, 5);
+    int c1 = how_much_bulls(12340, 98765, 5);
+    int c2 = how_much_cows(12340, 98765, 5);
     int c3 = how_much_bulls(9876, 5436, 4);
     int c4 = how_much_cows(9876, 5436, 4);
     int c5 = how_much_bulls(129083, 129083, 6);
@@ -126,8 +126,8 @@ CTEST(counter, bulls_cows) {
     const int exp7 = 4;
     const int exp8 = 2;
     const int exp9 = 2;
-    const int exp10 = 3;
-    const int exp11 = 2;
+    const int exp10 = 2;
+    const int exp11 = 3;
     const int exp12 = 2;
 
     ASSERT_EQUAL(exp1, c1);
