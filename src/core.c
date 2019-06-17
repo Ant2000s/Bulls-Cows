@@ -63,7 +63,6 @@ void print_txt(FILE *p) {
 }
 
 void print_menu() {
-  //    system("clear");
   printf("%100s", "Bulls and Cows\n\n");
   printf("%110s", "Touch \"1\" to start playing(one player)\n");
   printf("%111s", "Touch \"2\" to start playing(two players)\n");
@@ -74,10 +73,6 @@ void print_menu() {
 
 int choose_point(int L, char *c, int *kole) { //рабочий вариант, итог
   int kol, i;
-  //    char* c = NULL;
-  //    size_t len = 0;
-  //    for (;;) {
-  //      getline(&c, &len, stdin);
   for (i = 0; c[i] != '\n'; i++)
     ;
   kol = atoi(c);
@@ -92,22 +87,12 @@ int choose_point(int L, char *c, int *kole) { //рабочий вариант, �
   }
 
   return 0;
-  //        printf("Incorrect input, try again\n");
-  //    }
 }
 
 int scans(int kol, char *c, int *nume) {
   int i, num, zero = 0, reit = 0;
-  //    char* c = NULL;
-  //    size_t len = 0;
-  //    printf("Input your picked number: "); //не оптимальный, но полностью
-  //    рабочий for (;;) {
-  // scanf("%d\n", &num);
-  // printf("num: %d\n", num);
-  //        getline(&c, &len, stdin);
   for (i = 0; c[i] != '\n'; i++)
     ;
-  // printf("\n%c\n", c[0]);
   if (c[0] == '0') {
     zero = 1;
   }
@@ -120,21 +105,18 @@ int scans(int kol, char *c, int *nume) {
   num = atoi(c);
   *nume = num;
   if (zero == 0) {
-    if ((i == kol) && (reit == 0) /*(num != 0)*/
-        && (((num / pow(10, kol - 1) < 10) && (num / pow(10, kol - 1) >= 1)))) {
+    if ((i == kol) && (reit == 0) &&
+        (((num / pow(10, kol - 1) < 10) && (num / pow(10, kol - 1) >= 1)))) {
       return 1;
     }
   }
   if (zero == 1) {
-    if ((i == kol) && (reit == 0) /*(num != 0)*/
-        && (((num / pow(10, kol - 2) < 10) && (num / pow(10, kol - 2) >= 1)))) {
+    if ((i == kol) && (reit == 0) &&
+        (((num / pow(10, kol - 2) < 10) && (num / pow(10, kol - 2) >= 1)))) {
       return 1;
     }
   }
   reit = 0;
   zero = 0;
   return 0;
-  // printf("Incorrect value, try again\n");
-  // while(getchar() != '\n');
-  //    }
 }

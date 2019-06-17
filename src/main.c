@@ -43,7 +43,6 @@ int main() {
       kol = kol + 3;
       num = random_n(kol);
       do {
-        //          system("clear");
         printf("%98s", "Input your number: ");
         for (;;) {
           getline(&ichar, &len, stdin);
@@ -102,6 +101,5 @@ int main() {
     if (h == 4) {
       return 0;
     }
-    // print_menu();
   }
 }
